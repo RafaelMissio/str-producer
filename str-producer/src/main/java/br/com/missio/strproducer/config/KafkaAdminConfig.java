@@ -17,12 +17,14 @@ public class KafkaAdminConfig {
 
     public final KafkaProperties properties;
 
+    // Configuração de comunicação com o Kafka
     public KafkaAdmin kafkaAdmin(){
         var configs = new HashMap<String,Object>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, properties.getBootstrapServers());
         return new KafkaAdmin(configs);
     }
 
+    // Criação de um novo tópico
     @Bean
     public KafkaAdmin.NewTopics topics(){
         return new KafkaAdmin.NewTopics(
@@ -32,4 +34,5 @@ public class KafkaAdminConfig {
                         build()
         );
     }
+
 }

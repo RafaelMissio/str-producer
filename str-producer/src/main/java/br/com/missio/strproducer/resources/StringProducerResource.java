@@ -13,6 +13,7 @@ public class StringProducerResource {
 
     private final StringProducerService producerService;
 
+    // Envia uma mensagem para o tópico Kafka
     @PostMapping
     public ResponseEntity<?> sendMessage(@RequestBody String message){
         producerService.sendMessage(message);
